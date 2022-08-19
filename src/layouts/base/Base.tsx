@@ -34,7 +34,7 @@ const Base = (props: IProps) => {
           />
           <div
             style={{ backgroundColor: COLORS.backGround }}
-            className="grow rounded-b-[45px] overflow-auto "
+            className="rounded-b-[45px] overflow-auto h-5/6"
           >
             {page}
           </div>

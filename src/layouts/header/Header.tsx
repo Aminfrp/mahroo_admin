@@ -15,7 +15,7 @@ const Header = (props: IProps) => {
       style={{
         backgroundColor: COLORS.backGround,
       }}
-      className="rounded-t-[45px] h-32"
+      className="rounded-t-[45px] h-1/6"
     >
       <div
         className="text-gray-500 h-32 rounded-t-[45px] items-center px-4 sm:px-8 flex justify-end"

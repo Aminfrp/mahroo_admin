@@ -10,6 +10,15 @@ export interface IUser {
   phoneNumber: number;
 }
 
+export interface ICreateUser {
+  name: string;
+  password: string;
+  email: string;
+  code: number;
+  avatar: any[];
+  phoneNumber: number;
+}
+
 export interface ICouse {
   _id: string;
   name: string;
