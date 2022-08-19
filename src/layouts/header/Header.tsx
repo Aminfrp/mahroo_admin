@@ -1,15 +1,18 @@
 import { COLORS } from "../../static/static";
 import HeaderStyle from "./Header.module.css";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useNavigate } from "react-router-dom";
 interface IProps {
   name: string;
   email: string;
   avatar: string;
   toggleMenu: boolean;
   setMenu: Function;
+  prevPage: string;
 }
 const Header = (props: IProps) => {
-  const { name, email, avatar, toggleMenu, setMenu } = props;
+  const { name, email, avatar, toggleMenu, setMenu, prevPage } = props;
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -23,6 +26,19 @@ const Header = (props: IProps) => {
           backgroundColor: COLORS.backGround,
         }}
       >
+        {/* navigate prev page */}
+        <div
+          className={`text-black mr-2 hover:scale-110 ${
+            prevPage ? "block" : "hidden"
+          }`}
+          style={{ transition: "0.2s" }}
+        >
+          <ArrowBackIcon
+            className="hover:cursor-pointer"
+            fontSize="large"
+            onClick={() => navigate(prevPage)}
+          />
+        </div>
         {/* name and email */}
         <div className="flex flex-col items-end jusrify-end w-full h-full overflow-hidden text-ellipsis whitespace-nowrap">
           <p className="text-neutral-900 text-md w-full h-full flex justify-end items-end">
@@ -43,7 +59,8 @@ const Header = (props: IProps) => {
         </div>
         {/* menu icon */}
         <div
-          className={`pr-5 h-full items-center jutify-center sm:hidden md:flex ${HeaderStyle.menuIcon}`}
+          className={`pr-5 h-full items-center jutify-center hover:scale-110 sm:hidden md:flex ${HeaderStyle.menuIcon}`}
+          style={{ transition: "0.2s" }}
         >
           {toggleMenu ? (
             <img

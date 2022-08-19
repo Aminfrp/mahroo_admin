@@ -13,12 +13,24 @@ const Router = () => {
     <React.Suspense fallback={"Loading"}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Base page={<Dashboard />} />} />
-          <Route path="teachers" element={<Base page={<Teachers />} />} />
-          <Route path="courses" element={<Base page={<Courses />} />} />
+          <Route
+            path="/"
+            element={<Base page={<Dashboard />} prevPage={""} />}
+          />
+          <Route
+            path="teachers"
+            element={<Base page={<Teachers />} prevPage={""} />}
+          />
+          <Route
+            path="courses"
+            element={<Base page={<Courses />} prevPage={""} />}
+          />
           <Route path="users">
-            <Route index element={<Base page={<Users />} />} />
-            <Route path="new" element={<Base page={<CreateUser />} />} />
+            <Route index element={<Base page={<Users />} prevPage={""} />} />
+            <Route
+              path="new"
+              element={<Base page={<CreateUser />} prevPage={"/users"} />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -6,9 +6,10 @@ import BaseStyle from "./Base.module.css";
 
 interface IProps {
   page: ReactNode;
+  prevPage: string;
 }
 const Base = (props: IProps) => {
-  const { page } = props;
+  const { page, prevPage } = props;
   const [menu, toggleMenu] = useState(false);
   const user = {
     avatar: "",
@@ -31,6 +32,7 @@ const Base = (props: IProps) => {
             avatar={user.avatar ? user.avatar : "/icons/woman.png"}
             toggleMenu={menu}
             setMenu={toggleMenu}
+            prevPage={prevPage}
           />
           <div
             style={{ backgroundColor: COLORS.backGround }}
